@@ -1,0 +1,383 @@
+<!DOCTYPE html><html><head>
+        <title>Stencila</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="/img/favicon.png">
+        
+        <link rel="stylesheet" href="/css/stencila-website.css">
+        <link rel="stylesheet" href="/css/fontawesome-all.min.css">
+        
+    </head>
+
+    <body class="has-navbar-fixed-top has-navbar-fixed-top-touch" id="body">
+        <header class="header">
+    <nav class="navbar is-fixed-top border-bottom-light" role="navigation" aria-label="main navigation" id="main-navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item navbar-logo" href="/"><img src="/img/stencila-logo.svg" width="140" alt="Stencila"></a>
+                <div class="navbar-burger"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start flex-grow-contents flex-end">
+                    <a class="navbar-item" href="/use">Use</a>
+                    <a class="navbar-item" href="/learn/intro.html">Learn</a>
+                    <a class="navbar-item" href="/contribute">Contribute</a>
+                    <a class="navbar-item" href="/community">Community</a>
+                </div>
+                <div class="navbar-end is-flex align-centre">
+                    <a href="/about/jobs" class="button is-mini is-outlined is-primary is-rounded call-to-action">We&apos;re hiring!</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+        
+<section id="section-1" class="section has-background-light">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                
+<header class="heading">
+    
+    <span class="small has-text-primary">What is Stencila?</span>
+    
+    <h1 class="title has-line is-1 has-text-primary">An open source office suite for reproducible research.</h1>
+</header>
+
+
+                <div class="content">
+                    <p>The calls for research to be transparent and reproducible have never been louder. But today&apos;s tools for reproducible research can be intimidating - especially if you&apos;re not a coder.</p>
+                    <p><strong>Stencila</strong> makes reproducible research more accessible with intuitive word processor and spreadsheet interfaces that you and your colleagues are already used to.</p>
+
+                    <p><strong><span class="icon"><i class="fa fa-flask"></i></span>
+                            Stencila</strong> is an open source project under active development. We <span class="icon has-text-danger"><i class="fa fa-heart"></i></span> your <a href="/community/beta-testing.html">feedback</a> but please be patient
+                        with
+                        bugs and instabilities!</p>
+                    
+<div class="call-to-action-with-text">
+    <a id="download-desktop-button" class="button call-to-action is-primary is-rounded is-large" href="https://github.com/stencila/desktop/releases">
+        <div id="download-desktop-details">Download Beta</div>
+    </a>
+
+    <div id="download-desktop-other" style="display: none" class="call-to-action-text">
+        This is the desktop version for <span id="download-desktop-os"></span>.<br>
+        For other versions please <a id="download-desktop-other-link" href="https://github.com/stencila/desktop/releases">go here</a>
+    </div>
+
+</div>
+<script type="text/javascript">
+    var os;
+    var href;
+    if (navigator.appVersion.indexOf('Win') != -1) {
+        os = 'Windows';
+        href = 'https://github.com/stencila/desktop/releases/download/v0.28.2/Stencila.Setup.0.28.2.exe';
+    } else if (navigator.appVersion.indexOf('Mac') != -1) {
+        os = 'MacOS';
+        href = 'https://github.com/stencila/desktop/releases/download/v0.28.2/Stencila-0.28.2.dmg';
+    } else if (navigator.appVersion.indexOf('Linux') != -1) {
+        os = 'Linux';
+        href = 'https://github.com/stencila/desktop/releases/download/v0.28.2/stencila-desktop-0.28.2-x86_64.AppImage';
+    }
+
+    if (os) {
+        var button = document.querySelector('#download-desktop-button')
+        button.href = href
+        var osSpan = document.querySelector('#download-desktop-os')
+        osSpan.innerText = os
+        var other = document.querySelector('#download-desktop-other')
+        other.setAttribute('style', '')
+    }
+</script>
+
+                </div>
+            </div>
+            <div class="column is-offset-1 has-text-centered">
+                <img src="/img/icons/stencil-machine.svg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="video" class="section has-background-primary">
+    <div class="container">
+        <header class="heading has-text-centered">
+            <span class="small has-text-white">How does it work?</span>
+            <h2 class="title has-line is-2 has-text-white">Stencila integrates your data into your documents and spreadsheets so you can access and share your research much more effectively.</h2>
+        </header>
+
+        <div class="content has-text-centered">
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/EzrR96PDnO8?rel=0&wmode=transparent" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <a class="button call-to-action is-white is-outlined is-rounded is-large has-text-hover-primary" href="#">Read more</a>
+        </div>
+    </div>
+</section> -->
+
+<section id="features" class="section has-background-white border-bottom-light">
+    <div class="container">
+        <header class="heading has-text-centered">
+            <span class="small">What makes it different?</span>
+            <h2 class="title has-line is-2 has-text-primary">Stencila comes with a bunch of <br>features that make it both flexible and powerful.</h2>
+        </header>
+        <div class="card-grid-container">
+            <div class="columns">
+                <div class="column is-one-third">
+                    <div class="card card--grid">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="img/icons/doctype-stencila.svg">
+                            </figure>
+                        </div>
+                        <div class="card-content content">
+                            <p class="title is-4">A word processor designed for research content</p>
+                            <p>Create interactive, fully reproducible documents using a familiar visual authoring interface. Use code cells to produce figures based on data - no more copying and pasting static images and tables! Cite figures and
+                                references, without having to worry about citation formatting.</p>
+                            <hr class="is-small">
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="card card--grid">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="img/icons/doctype-spreadsheet.svg">
+                            </figure>
+                        </div>
+                        <div class="card-content content">
+                            <p class="title is-4">Spreadsheets leveraging the power of open source languages</p>
+                            <p>Leverage the power of data manipulation using languages like R, Python, and SQL from within Stencila Sheets. Use formulas to do calculations, create figures next to the data and reference them in the manuscript. In an
+                                article you can reference data from a spreadsheet and vice versa. If you update the data in one place, all affected documents will update as well.</p>
+                            <hr class="is-small">
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="card card--grid">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="img/icons/software-hexagons.svg">
+                            </figure>
+                        </div>
+                        <div class="card-content content">
+                            <p class="title is-4">Reactive code evaluation in different languages</p>
+                            <p>In Stencila code evaluates live as you type. Because the execution engine analyses the dependencies between cells, it can perform a minimal update, making computation fast and responsive. This mechanism works with all
+                                available languages (e.g. R, Python, Javascript, SQL). You can even mix languages within a document.</p>
+                            <hr class="is-small">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-one-third is-offset-2">
+                    <div class="card card--grid">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="img/icons/stencil-multi-doc.svg">
+                            </figure>
+                        </div>
+                        <div class="card-content content">
+                            <p class="title is-4">Interoperability with existing tools and workflows</p>
+                            <p>Stencila is developed not to replace existing tools, but to complement them. We are working with the communities of existing open source tools to improve interoperability. Stencila also aims to support file formats
+                                commonly used by researchers for reproducibility such as Jupyter Notebooks, RMarkdown and more.</p>
+                            <hr class="is-small">
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="card card--grid">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="img/icons/dockerfile-increment.svg">
+                            </figure>
+                        </div>
+                        <div class="card-content content">
+                            <p class="title is-4">Reproducibility from authoring through to publishing</p>
+                            <p>Stencila projects are self-contained archives of documents and assets. We are working with authors and publishers on formats which extend existing publishing standards - allowing your publications to embed code and
+                                making the publication process faster.</p>
+                            <hr class="is-small">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="section border-bottom-light has-background-primary">
+    <div class="container">
+        <div class="columns">
+            <div class="column has-text-centered">
+                <header class="heading">
+                    <h3 class="title is-3 has-text-white">An open source office suite for reproducible research.</h3>
+                </header>
+
+                <div class="content is-flex flex-direction-column has-text-white">
+                    <p>Leverage the power of data manipulation using languages like R, Python, and SQL from within Stencila Sheets. Use formulas to do calculations, create figures next to the data and reference them in the manuscript. In an article
+                        you can reference data from a spreadsheet and vice versa. If you update the data in one place, all affected documents will update as well.</p>
+
+                    <a href="/learn/intro.html" class="button is-outlined is-white is-rounded call-to-action">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+<section id="funders-partners" class="section">
+    <div class="container">
+        <header class="heading has-text-centered has-large-margin-bottom">
+            <span class="small">Funders and Partners</span>
+            <h2 class="title has-line is-2 has-text-primary">We wouldn&#x2019;t be doing this without these visionary<br>and generous organisations</h2>
+        </header>
+        <div class="is-flex flex-justify-centre">
+            <figure>
+                <img src="/img/sloan.png">
+            </figure>
+        </div>
+
+        <div class="columns logos">
+            <div class="column is-flex align-centre has-text-left">
+                <a href="https://codeforscience.org">
+                    <img src="/img/css.png">
+                </a>
+            </div>
+            <div class="column is-flex align-centre has-text-centered">
+                <a href="http://coko.foundation">
+                    <img src="/img/coko.jpg">
+                </a>
+            </div>
+            <div class="column is-flex align-centre has-text-right">
+                <a href="https://datproject.org">
+                    <img src="/img/dat.png">
+                </a>
+            </div>
+        </div>
+
+        <div class="columns logos">
+            <div class="column is-flex align-centre has-text-left">
+                <a href="https://elifesciences.org/">
+                    <img src="/img/elife.png">
+                </a>
+            </div>
+            <div class="column is-flex align-centre has-text-centered">
+                <a href="http://substance.io">
+                    <img src="/img/substance.svg">
+                </a>
+            </div>
+            <div class="column is-flex align-centre has-text-right">
+                <a href="https://opensciencemooc.eu/">
+                    <img src="/img/open-science-mooc-logo.png">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- <section id="funders" class="section">
+    <div class="container">
+        <h1 class="title is-3 is-gray has-text-centered">Funders</h1>
+        <figure class="is-flex is-horizontal-center">
+            <img src="/img/sloan.png">
+        </figure>
+    </div>
+</section>
+
+<section id="partners" class="section">
+    <div class="container">
+        <h1 class="title is-3 is-gray has-text-centered">Partners</h1>
+        <div class="columns is-multiline is-centered">
+            <div class="column is-narrow">
+                <a href="https://codeforscience.org">
+                    <img src="/img/css.png">
+                </a>
+            </div>
+            <div class="column is-narrow">
+                <a href="http://coko.foundation">
+                    <img src="/img/coko.jpg">
+                </a>
+            </div>
+            <div class="column is-narrow">
+                <a href="https://datproject.org">
+                    <img src="/img/dat.png">
+                </a>
+            </div>
+            <div class="column is-narrow">
+                <a href="https://elifesciences.org/">
+                    <img src="/img/elife.png">
+                </a>
+            </div>
+            <div class="column is-narrow">
+                <a href="http://substance.io">
+                    <img src="/img/substance.svg">
+                </a>
+            </div>
+            <div class="column is-narrow">
+                <a href="https://opensciencemooc.eu/">
+                    <img src="/img/open-science-mooc-logo.png">
+                </a>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+        <footer class="footer">
+    <div class="container">
+        <div class="columns footer-links is-centered">
+            <div class="column is-2">
+                <h4 class="title"> Tools </h4>
+                <a href="/use">Use </a> <br>
+                <a href="/learn/intro.html"> Learn </a> <br>
+                <a href="/learn/faq.html"> FAQ </a> <br>
+            </div>
+            <div class="column is-2">
+                <h4 class="title"> Community </h4>
+                <a href="/contribute"> Contribute </a> <br>
+                <a href="/community/beta-testing.html"> Beta Testing </a> <br>
+                <a href="/community/resources.html"> Resources </a> <br>
+                <a href="/blog"> Blog </a> <br>
+            </div>
+            <div class="column is-2">
+                <h4 class="title"> About </h4>
+                <a href="/about/team.html">Team</a> <br>
+                <a href="/about/advisory-board.html">Advisors</a> <br>
+                <a href="/about/jobs">Jobs</a> <br>
+            </div>
+            <div class="column is-2">
+                <h4 class="title"> Contact </h4>
+                <a href="mailto:hello@stenci.la">Email </a> <br>
+                <a href="https://twitter.com/stencila"> Twitter </a> <br>
+                <a href="https://gitter.im/stencila/stencila"> Gitter Chat </a> <br>
+                <a href="https://community.stenci.la/"> Community Forum </a> <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-colophon">
+        <div class="container">
+            <div class="columns align-centre">
+                <img src="/img/stencila-icon-reverse.svg" width="36" alt="Stencila" class="footer-logo">
+                <div class="column footer-copyright no-flex-grow has-nowrap">
+                    &#xA9; 2018 Stencila <a href="https://github.com/stencila/website#contributors">contributors</a>
+                </div>
+                <div class="footer-social column flex-grow has-text-centered">
+                    <a href="https://github.com/stencila" target="_blank" class="fab fa-github"></a>
+                    <a href="https://gitter.im/stencila/stencila" target="_blank" class="fab fa-gitter"></a>
+                    <a href="https://twitter.com/stencila" target="_blank" class="fab fa-twitter"></a>
+                </div>
+                <div class="column is-2 footer-buttons">
+                    <a id="edit-page" class="button is-mini is-outlined is-white is-rounded call-to-action is-full-width" href="https://github.com/stencila/website/edit/master/src/index.html" target="_blank" title="Edit this page">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+        <script type="text/javascript" src="/js/noframework.waypoints.js"></script>
+        <script type="text/javascript" src="/js/stencila-website.js"></script>
+        
+    
+
+</body></html>

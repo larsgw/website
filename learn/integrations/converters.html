@@ -1,0 +1,321 @@
+<!DOCTYPE html><html><head>
+        <title>
+Stencila Converters : Stencila
+</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="/img/favicon.png">
+        
+
+        <link rel="stylesheet" href="/css/stencila-website.css">
+        <link rel="stylesheet" href="/css/fontawesome-all.min.css">
+        
+<link rel="stylesheet" href="/css/prism.css">
+
+    </head>
+
+    <body class="has-navbar-fixed-top has-navbar-fixed-top-touch" id="body">
+        <header class="header">
+    <nav class="navbar is-fixed-top border-bottom-light" role="navigation" aria-label="main navigation" id="main-navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item navbar-logo" href="/"><img src="/img/stencila-logo.svg" width="140" alt="Stencila"></a>
+                <div class="navbar-burger"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start flex-grow-contents flex-end">
+                    <a class="navbar-item" href="/use">Use</a>
+                    <a class="navbar-item" href="/learn/intro.html">Learn</a>
+                    <a class="navbar-item" href="/contribute">Contribute</a>
+                    <a class="navbar-item" href="/community">Community</a>
+                </div>
+                <div class="navbar-end is-flex align-centre">
+                    <a href="/about/jobs" class="button is-mini is-outlined is-primary is-rounded call-to-action">We&apos;re hiring!</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+        
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-9">
+                <header class="heading">
+                    <span class="small has-text-primary"></span>
+                    <h1 class="title has-line is-1 has-text-primary">Stencila Converters</h1>
+                </header>
+                <div class="content">
+                    <p><img src="/learn/img/convert.png" alt="Stencila Converters" style="display: inline; width: 12%; margin: 0 auto; padding-right: 1em; padding-bottom: 1em; float: left;"></p>
+<p>Stencila Converters allow you to convert between a range of formats commonly used for among researchers (and not only). The conversion of interactive source code sections of the document is lossless - you can still run the code after the conversion. This means that you can seamlessly collaborate with colleagues who prefer other than you interfaces, without yourself having to give up your tool of choice. Stencila Converters are using the awesome power of <a href="https://pandoc.org/">pandoc</a> so if you are already a
+pandoc user, you should find the Converters easy to use.</p>
+<h2 style="clear: left;" id="install">Install</h2>
+<p>The easiest way to install the Converters is through installing <a href="https://github.com/stencila/cli/releases">Stencila Command Line (CLI)</a> tool.
+The installation requires two steps:</p>
+<ol>
+<li>Download and unpack the binary file with the <a href="https://github.com/stencila/cli/releases">CLI for your operating system</a>.</li>
+<li>Copy the binary file to the relevant location in your operating system so that you can easily access the tool in the command line:</li>
+</ol>
+<ul>
+<li>on Windows, create a folder in <code>C:\ProgramFiles\stencila</code> and copy the <code>stencila.exe</code> file into it; then open Windows Command Line and add
+the folder to the <code>PATH</code>: <code>setx PATH &quot;$env:path;C:\ProgramFiles\stencila&quot;</code></li>
+<li>on Linux, copy the <code>stencila</code> binary file to <code>/usr/local/bin/</code>;</li>
+<li>on Mac OS X, copy the <code>stencila</code> file to the <code>/usr/local/bin/</code> folder.</li>
+</ul>
+<h2 id="use">Use</h2>
+<p>The basic use of the Converter is fairly simple. Open the terminal and type <code>stencila convert path-to-input-file path-to-output-file</code>, replacing
+<code>path-to-input-file</code> and <code>path-to-output-file</code> with actual paths. So for example:</p>
+<pre><code class="language-bash">stencila convert Stencila/examples/hello-world/hello-world/hello-world.md Stencila/examples/hello-world/hello-world.docx
+</code></pre>
+<p>You should see the following output message:</p>
+<pre><code class="language-bash">&#x2713;  Success converting &quot;Stencila/examples/hello-world/hello-world/hello-world.md&quot; to &quot;Stencila/examples/hello-world/hello-world.docx&quot;
+</code></pre>
+<p>You can override the file format both from and to which the Converter is meant to convert. In order to do that, use the <code>--from</code> and <code>--to</code> options.
+In the example below the output file format will actually be <code>comma separated values</code>, even thought the output file name has a different extension (<code>txt</code>).</p>
+<pre><code class="language-bash">stencila convert hospital.xlsx --to csv hospital.txt
+</code></pre>
+<p>If you don&apos;t specify the output for the Converter, it will display on the screen (standard output) the input file converted to the intermittent internal Stencila JSON format.</p>
+<pre><code class="language-bash">stencila convert hospital.xls
+</code></pre>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;Document&quot;,
+  &quot;front&quot;: {
+    &quot;name&quot;: {
+      &quot;type&quot;: &quot;String&quot;,
+      &quot;data&quot;: &quot;patient&quot;
+    }
+  },
+  &quot;body&quot;: [
+    {
+      &quot;type&quot;: &quot;Table&quot;,
+      &quot;rows&quot;: [
+        [
+          [],
+          [
+            {
+              &quot;type&quot;: &quot;String&quot;,
+              &quot;data&quot;: &quot;Day 1&quot;
+            }
+          ],
+</code></pre>
+<p>To get more help on using the Converter type <code>stencila convert -h</code>.</p>
+<h3 id="convert-to-pdf">Convert to PDF</h3>
+<p>Conversion to PDF will require <code>pdflatex</code> (because this is how <a href="https://pandoc.org/MANUAL.html#creating-a-pdf">pandoc works</a>). Check the <a href="https://www.latex-project.org/get/">installation details here</a>.</p>
+<h3 id="convert-spreadsheets">Convert spreadsheets</h3>
+<p>Stencila Converters support spreadsheet conversion.</p>
+<pre><code class="language-bash">stencila convert hospital.xlsx hospital.md
+</code></pre>
+<p>Should result in:</p>
+<pre><code class="language-bash">&#x2713;  Success converting &quot;hospital.xlsx&quot; to &quot;hospital.md&quot;
+</code></pre>
+<p>Note that conversion from <code>xlsx</code> format to <code>md</code> retains some metadata from the original spreadsheet:</p>
+<p><img src="/learn/img/convert-xlsx-screen.png" alt=""></p>
+<p><img src="/learn/img/convert-xlsx-md.png" alt=""></p>
+<h3 id="convert-projects">Convert projects</h3>
+<p>You can convert a whole folder into a supported by Stencila <code>DAR</code> project which will contain all your articles and spreadsheets ready to work with in Stencila.
+You need to specify the output format to have the <code>dar</code> extension:</p>
+<pre><code class="language-bash">stencila convert path-to-folder path-to-project.dar
+</code></pre>
+<p>Or you can do it using <code>--to</code> flag:</p>
+<pre><code class="language-bash">stencila convert path-to-folder --to dar path-to-project
+</code></pre>
+<p>Note that if you use <code>--to</code> flag and you don&apos;t spefify the <code>dar</code> extension in the output project name, the Converter will still complete the conversion.</p>
+<h2 id="supported-formats">Supported formats</h2>
+<p>Stencila Converters recognize the file extensions and use the relevant converters. Below is the list of currently recognized file extensions:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Format</th>
+<th style="text-align:center">Extension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Delimiter Separated Values</td>
+<td style="text-align:center"><code>csv</code>, <code>tsv</code></td>
+</tr>
+<tr>
+<td style="text-align:left">HTML</td>
+<td style="text-align:center"><code>html</code></td>
+</tr>
+<tr>
+<td style="text-align:left">JavaScript Object Notation</td>
+<td style="text-align:center"><code>json</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Journal Aricle Tag Suite</td>
+<td style="text-align:center"><code>jats</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Jupyter Notebook</td>
+<td style="text-align:center"><code>ipnyb</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Latex</td>
+<td style="text-align:center"><code>tex</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Markdown</td>
+<td style="text-align:center"><code>md</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Microsoft Excel</td>
+<td style="text-align:center"><code>xlsx</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Microsoft Word</td>
+<td style="text-align:center"><code>docx</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Open Document Spreadsheet</td>
+<td style="text-align:center"><code>ods</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Open Document Text</td>
+<td style="text-align:center"><code>odt</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Portable Document Format</td>
+<td style="text-align:center"><code>pdf</code></td>
+</tr>
+<tr>
+<td style="text-align:left">RMarkdown</td>
+<td style="text-align:center"><code>Rmd</code></td>
+</tr>
+<tr>
+<td style="text-align:left">XMarkdown*</td>
+<td style="text-align:center"><code>Xmd</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Reproducible Document Archive</td>
+<td style="text-align:center"><code>sheet.xml</code>, <code>sheetml</code>, <code>jats.xml</code></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>* <em>In XMarkdown you can use any code blocks, e.g. <code>py</code>, <code>js</code> and so on.</em></p>
+
+                </div>
+                <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+                    
+                    <span></span>
+                    
+                    
+                </nav>
+            </div>
+            <div class="column is-2 is-offset-1">
+                <aside class="menu has-background-white">
+    <p class="menu-label">
+        Getting started
+    </p>
+    <ul class="menu-list">
+        <li><a class="is-active" href="/learn/intro.html">Introduction</a></li>
+        <li><a href="/use/install.html">Installation</a></li>
+        <li><a href="/learn/quick-start.html">Quick start</a></li>
+        <li><a href="/learn/faq.html">FAQ</a></li>
+    </ul>
+    <!-- <p class="menu-label">
+    Computation
+  </p> -->
+    <!-- <ul class="menu-list"> -->
+    <!-- <li><a href="/learn/computation/data.html">Data</a></li> -->
+    <!-- <li><a href="/learn/computation/operations.html">Operations</a></li> -->
+    <!-- <li><a href="/learn/computation/contexts.html">Contexts</a></li> -->
+    <!-- <li><a href="/learn/computation/engine.html">Engine</a></li> -->
+    <!-- <li><a href="/learn/computation/functions.html">Functions</a></li> -->
+    <!-- </ul> -->
+    <p class="menu-label">
+        Languages
+    </p>
+    <ul class="menu-list">
+        <li><a href="/learn/languages/mini.html">Mini</a></li>
+        <li><a href="/learn/languages/javascript.html">Javascript</a></li>
+        <li><a href="/learn/languages/python.html">Python</a></li>
+        <li><a href="/learn/languages/r.html">R</a></li>
+        <li><a href="/learn/languages/sql.html">SQL</a></li>
+    </ul>
+
+    <p class="menu-label">
+        Integrations
+    </p>
+    <ul class="menu-list">
+        <li><a href="/learn/integrations/converters.html">Converters</a></li>
+        <li><a href="/learn/integrations/dockter.html">Dockter</a></li>
+    </ul>
+</aside>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+        <footer class="footer">
+    <div class="container">
+        <div class="columns footer-links is-centered">
+            <div class="column is-2">
+                <h4 class="title"> Tools </h4>
+                <a href="/use">Use </a> <br>
+                <a href="/learn/intro.html"> Learn </a> <br>
+                <a href="/learn/faq.html"> FAQ </a> <br>
+            </div>
+            <div class="column is-2">
+                <h4 class="title"> Community </h4>
+                <a href="/contribute"> Contribute </a> <br>
+                <a href="/community/beta-testing.html"> Beta Testing </a> <br>
+                <a href="/community/resources.html"> Resources </a> <br>
+                <a href="/blog"> Blog </a> <br>
+            </div>
+            <div class="column is-2">
+                <h4 class="title"> About </h4>
+                <a href="/about/team.html">Team</a> <br>
+                <a href="/about/advisory-board.html">Advisors</a> <br>
+                <a href="/about/jobs">Jobs</a> <br>
+            </div>
+            <div class="column is-2">
+                <h4 class="title"> Contact </h4>
+                <a href="mailto:hello@stenci.la">Email </a> <br>
+                <a href="https://twitter.com/stencila"> Twitter </a> <br>
+                <a href="https://gitter.im/stencila/stencila"> Gitter Chat </a> <br>
+                <a href="https://community.stenci.la/"> Community Forum </a> <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-colophon">
+        <div class="container">
+            <div class="columns align-centre">
+                <img src="/img/stencila-icon-reverse.svg" width="36" alt="Stencila" class="footer-logo">
+                <div class="column footer-copyright no-flex-grow has-nowrap">
+                    &#xA9; 2018 Stencila <a href="https://github.com/stencila/website#contributors">contributors</a>
+                </div>
+                <div class="footer-social column flex-grow has-text-centered">
+                    <a href="https://github.com/stencila" target="_blank" class="fab fa-github"></a>
+                    <a href="https://gitter.im/stencila/stencila" target="_blank" class="fab fa-gitter"></a>
+                    <a href="https://twitter.com/stencila" target="_blank" class="fab fa-twitter"></a>
+                </div>
+                <div class="column is-2 footer-buttons">
+                    <a id="edit-page" class="button is-mini is-outlined is-white is-rounded call-to-action is-full-width" href="https://github.com/stencila/website/edit/master/src/learn/integrations/converters.md" target="_blank" title="Edit this page">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+
+        <script type="text/javascript" src="/js/noframework.waypoints.js"></script>
+        <script type="text/javascript" src="/js/stencila-website.js"></script>
+        
+<script type="text/javascript" src="/js/prism.js"></script>
+<script type="text/javascript" src="/js/prism-bash.min.js"></script>
+<script type="text/javascript" src="/js/prism-json.min.js"></script>
+<script type="text/javascript" src="/js/prism-mini.js"></script>
+<script type="text/javascript" src="/js/prism-python.min.js"></script>
+<script type="text/javascript" src="/js/prism-r.min.js"></script>
+<script type="text/javascript" src="/js/prism-sql.min.js"></script>
+
+    
+
+</body></html>
